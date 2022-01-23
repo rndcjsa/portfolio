@@ -16,15 +16,15 @@ spec:
         app: test-service-pod
     spec:
       containers:
-      - name: test-service-container
-        image: wsl:8080/test-service
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        - name: test-service-container
+          image: wsl:8080/test-service
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
             
