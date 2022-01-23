@@ -6,8 +6,8 @@ services:
     restart: always
   test-service: 
     build:
-      context: ${ROOT_DIRECTORY}/repos/test-service/src
-      dockerfile: ${ROOT_DIRECTORY}/repos/test-service/build/dockerfile
+      context: ${ROOT_DIRECTORY}/projects/test-project/repos/test-service/src
+      dockerfile: ${ROOT_DIRECTORY}/projects/test-project/repos/test-service/build/dockerfile
     ports:
       - 80
     restart: always
