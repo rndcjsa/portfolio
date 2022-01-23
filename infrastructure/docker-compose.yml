@@ -1,0 +1,23 @@
+services:
+  docker-image-registry-gateway: 
+    build:
+      context: ${INFRASTRUCTURE_DIRECTORY}/docker-image-registry-gateway
+      dockerfile: ${INFRASTRUCTURE_DIRECTORY}/docker-image-registry-gateway/dockerfile
+    ports:
+      - 8080:443
+  test-service-gateway: 
+    build:
+      context: ${INFRASTRUCTURE_DIRECTORY}/test-service-gateway
+      dockerfile: ${INFRASTRUCTURE_DIRECTORY}/test-service-gateway/dockerfile
+    ports:
+      - 8081:443
+  docker-image-registry: 
+    image: registry
+    ports:
+      - 5000:5000
+  test-service: 
+    build:
+      context: ${ROOT_DIRECTORY}/repos/test-service/src
+      dockerfile: ${ROOT_DIRECTORY}/repos/test-service/build/dockerfile
+    ports:
+      - 80

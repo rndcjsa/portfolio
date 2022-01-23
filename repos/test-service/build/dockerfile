@@ -1,0 +1,11 @@
+FROM mcr.microsoft.com/dotnet/sdk:6.0 as build
+WORKDIR /home/src
+COPY . .
+RUN dotnet build -c Release -o /home/bin
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 as execute
+WORKDIR /home/bin
+COPY --from=build /home/bin /home/bin
+ENV ASPNETCORE_URLS="http://*:80"
+ENV ASPNETCORE_ENVIRONMENT="Development"
+EXPOSE 80
+ENTRYPOINT dotnet HttpApi.dll
