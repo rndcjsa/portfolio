@@ -1,3 +1,3 @@
 eval $(cat base.bash)
-cd repos/test-service/push
+cd projects/test-project/repos/test-service/push
 bash push-image.bash
