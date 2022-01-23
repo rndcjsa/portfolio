@@ -1,6 +1,6 @@
 cat << EOL > cert.conf
 [req]
-default_bits       = 2048
+default_bits       = 4096
 default_keyfile    = wsl.key
 distinguished_name = req_distinguished_name
 req_extensions     = req_ext
