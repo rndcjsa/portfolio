@@ -1,6 +1,11 @@
+volumes:
+  docker-image-registry:
+
 services:
   docker-image-registry: 
     image: registry
+    volumes:
+      - docker-image-registry:/var/lib/registry
     ports:
       - 5000
     restart: always
