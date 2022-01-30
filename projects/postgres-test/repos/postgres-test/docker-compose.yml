@@ -1,9 +1,25 @@
+volumes:
+  postgres:
+  pgadmin:
+
 services:
   postgres:
     image: postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
     ports:
       - 5432:5432
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345678
+  pgadmin:
+    image: dpage/pgadmin4
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - 2345:80
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: rndcjsa@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 1
